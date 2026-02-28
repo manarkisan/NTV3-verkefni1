@@ -1,4 +1,5 @@
 import type React from "react";
+import { useState } from "react";
 
 export function Input( { value, onChange }: { value: string; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void }) {
    
@@ -7,7 +8,15 @@ export function Input( { value, onChange }: { value: string; onChange: (e: React
     }
 
 
+    const [myName, setMyName] = useState("")
+  const handleNameChange = (e) => {
+    setMyName(e.target.value);
+  }
 
+  const [email, setEmail] = useState("")
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  }
  
   
 
@@ -16,6 +25,38 @@ export function Input( { value, onChange }: { value: string; onChange: (e: React
 
 return(
     <>
+
+    
+ <div>
+        <input 
+        name='thy name'
+        type="text" 
+        value={myName} 
+        onChange={(e) => handleNameChange(e)}
+        />
+  
+        <div>my Name is</div>
+      <div>{myName}</div>
+      </div>
+
+      <div>
+        <input 
+        name='thy email'
+        type="email" 
+        value={email} 
+        onChange={(e) => handleEmailChange(e)}
+        />
+        
+        <div>my email is</div>
+      <div>{email}</div>
+      <button type='submit' >Submit</button>
+      
+      </div>
+
+
+
+
+
     <div>thy name: </div>
    
     <input 
